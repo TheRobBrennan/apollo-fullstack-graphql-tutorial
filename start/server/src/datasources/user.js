@@ -14,6 +14,10 @@ class UserAPI extends DataSource {
    * here, so we can know about the user making requests
    */
   initialize(config) {
+    /*
+      A graph API’s context is an object that’s shared among every resolver in a GraphQL request.
+      Right now, all you need to know is that the context is useful for storing user information.
+    */
     this.context = config.context;
   }
 
