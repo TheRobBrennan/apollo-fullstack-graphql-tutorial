@@ -47,3 +47,43 @@ query GetLaunchById($id: ID!) {
 # In the Query Variables section, pass in something like
 { "id": 60 }
 ```
+
+## Simple mutation: Login user
+
+```graphql
+mutation LoginUser {
+  login(email: "daisy@apollographql.com")
+}
+```
+
+This will give you a response like:
+
+```graphql
+{
+  "data": {
+    "login": "ZGFpc3lAYXBvbGxvZ3JhcGhxbC5jb20="
+  }
+}
+```
+
+## Advanced mutation: BookTrips as an authenticated user
+
+```graphql
+mutation BookTrips {
+  bookTrips(launchIds: [67,68,69]) {
+    success
+    message
+    launches {
+      id
+    }
+  }
+}
+```
+
+Now paste in your authorization header into the HTTP Headers box at the bottom of the playground:
+
+```graphql
+{
+  "authorization": "ZGFpc3lAYXBvbGxvZ3JhcGhxbC5jb20"
+}
+```
