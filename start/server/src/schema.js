@@ -1,6 +1,8 @@
 const { gql } = require('apollo-server')
 
 const typeDefs = gql`
+
+  # Resolvers for the Query type can be found at start/server/src/resolvers.js
   type Query {
     # launches query returns an array of launches that will never be null
     #   Add the ! to indicate our query will always return data
