@@ -6,13 +6,33 @@ const typeDefs = gql`
   type Query {
     # launches query returns an array of launches that will never be null
     #   Add the ! to indicate our query will always return data
-    launches: [Launch]!
+    launches(
+      """
+      The number of results to show. Must be >= 1. Default = 20
+      """
+      pageSize: Int
+      """
+      If you add a cursor here, it will only return results _after_ this cursor
+      """
+      after: String
+    ): LaunchConnection!
 
     # Fetch a launch by its ID
     launch(id: ID!): Launch
 
     # Queries for the current user
     me: User
+  }
+
+  """
+  Simple wrapper around our list of launches that contains a cursor to the
+  last item in the list. Pass this cursor to the launches query to fetch
+  results after these.
+  """
+  type LaunchConnection {
+    cursor: String!
+    hasMore: Boolean!
+    launches: [Launch]!
   }
 
   type Launch {
