@@ -40,7 +40,7 @@ const server = new ApolloServer({
   }),
   engine: {
     apiKey: process.env.ENGINE_API_KEY,
-  }
+  },
 })
 
 server.listen().then(({ url }) => {
