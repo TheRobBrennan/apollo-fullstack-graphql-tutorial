@@ -7,6 +7,7 @@ import Pages from './pages'
 import Login from './pages/login'
 import { resolvers, typeDefs } from './resolvers'
 import injectStyles from './styles'
+import { name, version } from '../package.json'
 
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -14,6 +15,8 @@ import { HttpLink } from 'apollo-link-http'
 
 const cache = new InMemoryCache()
 const link = new HttpLink({
+  name: `${name} [GraphQL DEMO]`,
+  version,
   uri: 'http://localhost:4000/graphql',
   headers: {
     // This token is read every time a GraphQL operation is made
