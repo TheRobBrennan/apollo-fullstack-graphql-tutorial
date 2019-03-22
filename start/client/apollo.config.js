@@ -1,6 +1,6 @@
 module.exports = {
   client: {
-    name: 'Space Explorer [web]',
+    name: 'Web [GraphQL DEMO]',
     service: 'TheRobBrennan-9643',
   },
 };
