@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "nodemon src/index.js",
-    "start:ci": "node src/index.js"
+    "start:ci": "node src/index.js",
+    "publish:schema:local": "npx apollo service:push --endpoint=http://localhost:4000"
   },
   "author": "",
   "license": "ISC",
