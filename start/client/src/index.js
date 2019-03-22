@@ -15,12 +15,12 @@ import { HttpLink } from 'apollo-link-http'
 
 const cache = new InMemoryCache()
 const link = new HttpLink({
-  name: `${name} [GraphQL DEMO]`,
-  version,
   uri: 'http://localhost:4000/graphql',
   headers: {
     // This token is read every time a GraphQL operation is made
     authorization: localStorage.getItem('token'),
+    'client-name': `${name} [GraphQL DEMO]`,
+    'client-version': `${version}`,
   },
 })
 
