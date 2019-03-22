@@ -1,6 +1,10 @@
+require('dotenv').config()
 const { ApolloServer } = require('apollo-server')
 const typeDefs = require('./schema')
 const resolvers = require('./resolvers')
+
+// Apollo Engine
+const apolloEngineConfig = require('./engine-demo')
 
 // Add our datasources
 const { createStore } = require('./utils')
@@ -40,6 +44,7 @@ const server = new ApolloServer({
   }),
   engine: {
     apiKey: process.env.ENGINE_API_KEY,
+    ...apolloEngineConfig,
   },
 })
 
